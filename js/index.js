@@ -143,10 +143,9 @@ function OnCipherInputChange()
 {
 	const CipherInputField 		= document.getElementById("CipherInputField").value;
 	const CipherFunctionField 	= document.getElementById("CipherFunctionField").value - 1;
-	console.log(CipherInputField, CipherFunctionField)
 	if(CipherFunctionField == DECRYPT_DATA)
 	{
-		DecryptPasswordOnWorker(_.unescape(CipherInputField.trim()), "CipherResultField");
+		DecryptPasswordOnWorker(he.decode(CipherInputField.trim()), "CipherResultField");
 		//_.unescape("$2QRTqKHqFz&lt;}*+cVC#oI,5~081XX~w5\\T*cPo5IY&amp;TO+q0_1;p!u.[&amp;AV$ki5$")
 	}
 	else
@@ -212,7 +211,6 @@ function popStateEvent(e)
 		}
 
 	})
-	console.log(target)
 
 }
 
