@@ -1,6 +1,5 @@
 const BLOCK_SIZE = 0X14;
-
-importScripts("/js/constants.js", 
+importScripts("constants.js", 
 	"https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js", 
 	"https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/enc-hex.min.js");
 
