@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Huawei password utility</title>
+	<link href="css/style.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="js/constants.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.12.0/underscore-min.js"></script>
+
+</head>
+
+<body>
+	<noscript>
+		<h1>Huawei password utility</h1>
+		<h2>This page performs all computations on the browser and thus required javascript to be enabled.</h2>
+	</noscript>
+	<header class="header-list">
+		<ul>
+			<li><a href="#home" id="homelink">Home</a></li>
+			<li><a href="#passgen" id="passgenlink">Password generator</a></li>
+			<li><a href="#cipher" id="cipherlink">Cipher/Decipher</a></li>
+		</ul>
+	</header>
+	<main>
+		<div id="home">
+			<h1 class="content">About</h1>
+			<div class="divider"></div>
+			<div class="content">
+				<p>
+					This is a simple web page by <a href="https://blog.fayaru.me">Fayaru</a> with a couple of utility functions for Huawei routers. 
+					Currently it supports hashing passwords with several pass modes aswell as encrypting "password" strings in the configuration file.
+				</p>
+				<p>
+					If you wish to know more about this page you can read my writeup <a href="https://blog.fayaru.me/posts/huawei_router_config/">here</a> or check out the GitHub <a href="https://github.com/andreluis034/huawei-utility-page"> repository</a>. 
+					Any changes or improvements to the page are welcome.
+				</p>
+			</div>
+		</div>
+		<div id="passgen" style="display: none;">
+			<h1 class="content">Password generator</h1>
+			<div class="divider"></div>
+			<div class="content">
+				<div class="input-description">
+					Password to hash:
+					<input id="PasswordField" class="user-input" placeholder="password" type="text" oninput="OnPasswordChange()" value>
+				</div>
+				<div class="input-description">
+					EncryptMode:
+					<select id="EncryptionMode" name="hashing" class="user-input" onchange="EncryptionModeChange()">
+						<option value="1">1. MD5(password)</option>
+						<option value="2">2. Sha256(MD5(password))</option>
+						<option value="3">3. PBKDF2(password, 256 key size, 5000 iterations, Sha256, salt)</option>
+					</select>
+				</div>
+				<div class="input-description">
+					Salt:
+					<div style="display: flex">
+						<div style="flex-grow: 1;">
+							<input id="SaltField" class="user-input" placeholder="salt" type="text" oninput="OnPasswordChange()" value>
+						</div>
+						<div class="user-input-checkbox" style="width: 6.8em;">
+							Randomize:
+							<input type="checkbox"  id="SaltRandomizeField" onclick="OnRandomizeFieldChange()"checked>
+						</div>
+					</div>
+				</div>
+				<div class="input-description">
+					Result:
+					<div style="display: flex">
+						<div style="flex-grow: 1;">
+							<input id="ResultField" class="user-input no-input" placeholder="result" type="text" value disabled>
+						</div>
+						<div class="user-input-checkbox"  style="width: 5.1em;" >
+							Encrypt:
+							<input type="checkbox" id="EncryptResultField" onclick="OnEncryptResultClick()"checked>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="cipher" style="display: none;">
+			<div class=>
+
+			</div>
+			<h1 class="content">Cipher Decipher</h1>
+			<div class="divider"></div>
+			<div class="content">
+				<p class="input-description"> In this page you can cipher and decipher strings with the same method as Huawei uses in their configuration</p>
+				<div class="input-description">
+					Input:
+					<input id="CipherInputField" class="user-input" placeholder="input" type="text" oninput="OnCipherInputChange()" value>
+				</div>
+				<div class="input-description">
+					Function:
+					<select id="CipherFunctionField" name="cipherfunction" class="user-input" onchange="OnCipherInputChange()">
+						<option value="1">Decipher</option>
+						<option value="2">Cipher</option>
+					</select>
+				</div>
+				<div class="input-description">
+					Result:
+					<input id="CipherResultField" class="user-input no-input" placeholder="result" type="text" value disabled>
+				</div>
+			</div>
+		</div>
+	</main>
+	<script src="js/index.js"></script> 
+
+</html>

@@ -1,0 +1,137 @@
+body
+{
+	background-color: rgb(38, 38,38);
+	font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+main 
+{
+	width:75%;
+	margin: 0 auto;
+	margin-top: 10vh;
+	color: #ffffffd9;
+}
+.user-input-checkbox
+{
+	height: 32px;
+    padding: 4px 11px;
+	line-height: 1.5;
+	margin: 0 0 auto;
+	padding-right: 0;
+}
+
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  transform: scale(1.5);
+}
+
+.user-input
+{
+	box-sizing: border-box;
+    margin: 0;
+    font-variant: tabular-nums;
+    list-style: none;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 32px;
+    padding: 4px 11px;
+    color: hsla(0,0%,100%,.65);
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: #3b3b4d;
+    background-image: none;
+    border: 1px solid #17171f;
+    border-radius: 4px;
+    -webkit-transition: all .3s;
+	transition: all .3s;
+	margin-bottom: 1em;
+}
+
+.disabled
+{
+	background-color: #7e7e8a !important;
+}
+
+.no-input
+{
+	background-color: #484851  !important;
+}
+
+.input-description
+{
+	color:	hsla(0,0%,100%,.65);
+}
+.content {
+	width: 98%;
+	margin: 0 auto;
+}
+.divider 
+{
+	width: 100%;
+	/*border: 1px solid #111111;*/
+	background-color: #111111;
+	height: 1px;
+	margin-top: 1em;
+	margin-bottom: 2em;
+}
+.header-list
+{
+	margin: 0 auto;
+	background-color: rgb(48,48,61);
+	width: 80%;
+	box-shadow: inset 0 -1px 0 rgb(24, 24, 24) ;
+	
+}
+
+.header-list > ul 
+{
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.header-list > ul > li
+{
+	display: inline-block;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.header-list > ul > li > a :first
+{
+	padding-left: 0;
+}
+.header-list > ul > li > a 
+{
+	display: block;
+	padding: 8px 0.80em;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 1.25em;
+	color: rgb(183, 183, 183);
+
+}
+
+.active-page
+{
+	color: #3889ea !important;
+	/*border-bottom: 2px solid #3889ea;*/
+	box-shadow: inset 0 -2px 0 #3889ea ;
+}
+
+.header-list > ul > li > a:hover {
+	color: #3889ea;
+	/*border-bottom: 2px solid #3889ea;*/
+	box-shadow: inset 0 -2px 0 #3889ea ;
+}
+
+main a 
+{
+	color:#3889ea; 
+	text-decoration: none;
+}
