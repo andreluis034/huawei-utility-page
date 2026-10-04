@@ -154,6 +154,14 @@ function OnCipherInputChange()
 	}
 }
 
+function EscapeXmlAttribute(value)
+{
+	// Other HTML named references, such as &grave;, are not valid XML entities.
+	return value.replace(
+		/[&"'<>]/g,
+		character => he.encode(character, {useNamedReferences: true})
+	);
+}
 
 myWorker.addEventListener('message', (e) => {
 	let encryptResultField = document.getElementById("EncryptResultField");
@@ -173,7 +181,15 @@ myWorker.addEventListener('message', (e) => {
 		case DECRYPT_DATA:
 		case ENCRYPT_DATA:
 			let field = document.getElementById(e.data.field);
-			field.value = e.data.return;
+			let value = e.data.return;
+			let isPasswordGeneratorCipher =
+				e.data.functionCall == ENCRYPT_DATA &&
+				e.data.field == "ResultField";
+			if(isPasswordGeneratorCipher)
+			{
+				value = EscapeXmlAttribute(value);
+			}
+			field.value = value;
 			
 			break;
 	}
